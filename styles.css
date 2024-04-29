@@ -9,11 +9,85 @@
 body {
     text-align: center;
     font-family: system-ui;
-    background-color: var(--whitish);
+    background-color: var(--green);
     margin: 0;
+    font-size: 18px;
 }
 
-.todos {
+h1 {
+    text-shadow: 1px 1px 2px var(--green);
+    font-weight: 500;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+hr {
+    color: var(--green);
+}
+
+/* input */
+input:not(.btn) {
+    font-size: 16px;
+    margin-bottom: 1.7em;
+    padding: 0.75em 0.5em;
+    background-color: white;
+    width: 100%;
+    max-width: 250px;
+    border: none;
+    border-left: 7px solid var(--neutral-4);
+}
+
+input:not(.btn):focus {
+    outline: none;
+    border-left: 7px solid var(--accent-1);
+}
+
+::placeholder {
+    color: var(--green);
+    opacity: 75%;
+}
+
+
+label {
+    display: block;
+    margin-bottom: .25em;
+    font-weight: 500;
+}
+
+p {
+    margin-top: 0;
+    font-weight: 300;
+}
+
+.btn {
+    background-color: var(--green);
+    color: var(--neon-green);
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 600;
+    margin: 10px 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    max-width: 120px;
+    display: inline-block;
+    transition: background-color 220ms, transform 220ms;
+    border: 1px solid var(--lime-green);
+}
+
+.btn:active {
+    transform: translate(0.8px, 0.8px);
+}
+
+.btn:disabled {
+    cursor: initial;
+    opacity: 0.5;
+}
+
+.todos-list {
     width: 50%;
     margin: auto;
     padding-left: 0;
@@ -57,29 +131,17 @@ body {
     list-style-type: "\25C8";
 }
 
-header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-h1 {
-    text-shadow: 1px 1px 2px var(--green);
-}
-
 .banner {
     font-size: 20px;
-    background-color: linear-gradient(rgb(0, 0, 0, 20%));
+    background-color: var(--whitish);
     margin: 5px;
     padding-bottom: 5px;
-}
-
-.banner p {
-    margin-top: 0;
+    box-shadow: 0px 3px 7px 1px rgba(0, 0, 0, 0.07),
+        0px -3px 7px 1px rgba(0, 0, 0, 0.07);
 }
 
 .box {
-    background-color: var(--lime-green);
+    background-color: var(--whitish);
     padding: 10px;
     border: 1px solid black;
     width: 60%;

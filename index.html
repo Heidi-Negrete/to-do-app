@@ -15,22 +15,26 @@
 				</header>
 				<p>Enter your to-dos. Check them off when they're complete!</p>
 			</div>
+
 			<div class="box">
-				<ul class="todos" id="unfinished">
+				<ul class="todos-list">
 					<li class="todo"><span class="content">Polish Teeth</span></li>
 					<li class="todo">
 						<span class="content"
-							>Do all the millions of things that you gottadooooo and this
-							overflows o no</span
+							>Do all the millions of things that gotta be done.</span
 						>
 					</li>
-				</ul>
-			</div>
-			<div class="box">
-				<ul class="todos" id="completed">
 					<li class="todo complete"><span class="content">Pet Cactus</span></li>
 				</ul>
+
+				<hr />
+				<form id="todo-form">
+					<label for="todo-title">Anything else?</label>
+					<input type="text" id="todo-title" placeholder="Enter new to-do..." />
+					<input type="submit" id="button-add" value="Add" class="btn" />
+				</form>
 			</div>
 		</main>
+		<script type="module" src="/src/main.ts"></script>
 	</body>
 </html>

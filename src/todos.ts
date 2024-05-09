@@ -1,17 +1,28 @@
 export type Category = "work" | "personal";
+export class ToDo {
+    #isComplete: boolean;
 
-export type ToDo = {
-    content: string,
-    category: Category,
-    isComplete: boolean
+    constructor(public content: string, public category: Category) {
+        this.#isComplete = false;
+    }
+
+    toggleComplete(): void {
+        this.#isComplete = !this.#isComplete;
+    }
+
+    getComplete(): boolean {
+        return this.#isComplete;
+    }
 }
 
 export default class Todos {
-    todos: ToDo[];
+    todos: ToDo[]; // refactor to map with first field ID and second field the todo object?
+    #toDoIndex: number; // this is not the best way to generate ids.
 
     constructor() {
 
         this.todos = [];
+        this.#toDoIndex = 0;
     }
 
     getAll(): ToDo[] {
@@ -22,12 +33,13 @@ export default class Todos {
         return this.todos.length;
     }
 
-    add(content: string, category: Category, isComplete: boolean = false): void {
-        this.todos.push({
+    add(content: string, category: Category): void {
+        const id = this.#toDoIndex; // for map
+        this.todos.push(new ToDo(
             content,
             category,
-            isComplete
-        })
+        ))
+        this.#toDoIndex ++;
     }
 
     getWork(): ToDo[] {
@@ -47,10 +59,18 @@ export default class Todos {
     }
 
     getComplete(): ToDo[] {
-        return this.todos.filter( todo => todo.isComplete);
+        return this.todos.filter( todo => todo.getComplete());
+    }
+
+    getCompleteCount(): number {
+        return this.getComplete().length;
     }
 
     getIncomplete(): ToDo[] {
-        return this.todos.filter( todo => !todo.isComplete);
+        return this.todos.filter( todo => !todo.getComplete());
+    }
+
+    getIncompleteCount(): number {
+        return this.getIncomplete().length;
     }
 }

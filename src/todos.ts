@@ -1,8 +1,8 @@
-export type Category = "work" | "personal";
+/*export type Category = "work" | "personal"; */
 export class ToDo {
     #isComplete: boolean;
 
-    constructor(public content: string, public category: Category) {
+    constructor(public content: string, public category: string /*Category*/) {
         this.#isComplete = false;
     }
 
@@ -17,12 +17,12 @@ export class ToDo {
 
 export default class Todos {
     todos: ToDo[]; // refactor to map with first field ID and second field the todo object?
-    #toDoIndex: number; // this is not the best way to generate ids.
+    // #toDoIndex: number; this is not the best way to generate ids.
 
     constructor() {
 
         this.todos = [];
-        this.#toDoIndex = 0;
+        //this.#toDoIndex = 0;
     }
 
     getAll(): ToDo[] {
@@ -33,13 +33,13 @@ export default class Todos {
         return this.todos.length;
     }
 
-    add(content: string, category: Category): void {
-        const id = this.#toDoIndex; // for map
+    add(content: string, category: string/*Category*/): void {
+        // const id = this.#toDoIndex
         this.todos.push(new ToDo(
             content,
             category,
         ))
-        this.#toDoIndex ++;
+       // this.#toDoIndex ++;
     }
 
     getWork(): ToDo[] {

@@ -1,4 +1,4 @@
-import Todos, {ToDo} from "./todos.ts";
+import Todos from "./todos.ts";
 
 // Setup ToDoList
 const ToDoList = new Todos();

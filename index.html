@@ -17,20 +17,29 @@
 			</div>
 
 			<div class="box">
-				<ul class="todos-list">
-					<li class="todo"><span class="content">Polish Teeth</span></li>
-					<li class="todo">
-						<span class="content"
-							>Do all the millions of things that gotta be done.</span
-						>
-					</li>
-					<li class="todo complete"><span class="content">Pet Cactus</span></li>
-				</ul>
-
-				<hr />
+				<div id="filter-box">
+					<h2>Filter:</h2>
+					<select id="filter-category">
+						<option value="all">All</option>
+						<option value="complete">Completed</option>
+						<option value="incomplete">Incomplete</option>
+						<option value="personal">Personal</option>
+						<option value="work">Work</option>
+					</select>
+					<p id="todo-count">(3)</p>
+				</div>
+				<ul id="todos-list"></ul>
 				<form id="todo-form">
-					<label for="todo-title">Anything else?</label>
-					<input type="text" id="todo-title" placeholder="Enter new to-do..." />
+					<select id="todo-category">
+						<option value="work">Work</option>
+						<option value="personal">Personal</option>
+					</select>
+					<input
+						type="text"
+						id="todo-title"
+						placeholder="Enter new to-do..."
+						autocomplete="off"
+					/>
 					<input type="submit" id="button-add" value="Add" class="btn" />
 				</form>
 			</div>
